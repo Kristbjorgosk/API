@@ -3,70 +3,47 @@
 }
 
 body {
-    margin: 0;
-    background-color: #ffffff;
-    max-width: 120vh;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-@media (max-width: 800px) {
-    .main {
-        flex-direction: column;
-        text-align: center;
-    }
+.container {
+    color: #493e44;
+    width: 300px;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    border-radius: 5%;
+    padding: 2%;
+    background: linear-gradient(144.08deg, #EBFEFF 21.01%, rgba(255, 244, 254, 0.567708) 54.93%, #ECFFEB 99.48%), linear-gradient(123.84deg, #E5E5E5 0.32%, #CDD5E0 32.08%, #CDD5E0 60.87%, #FFFFFF 95.61%);
+    filter: drop-shadow(9px 9px 16px rgba(163, 177, 198, 0.6)), drop-shadow(-9px -9px 16px rgba(255, 255, 255, 0.6));
+    box-shadow: -9px -9px 16px 0px rgba(255, 255, 255, 0.6);
+    box-shadow: 9px 9px 16px 0px rgba(163, 177, 198, 0.6);
 }
 
 h1 {
-    padding: 3rem 0 3rem 0;
-    text-align: center;
-    color: rgb(0, 0, 0);
+    font-size: 18px;
+    color: #a58e9b;
 }
 
-.new-location {
-    text-align: left;
-    font-size: 1.2em;
-    color: rgb(130, 130, 130);
-    padding: 10%;
-
+.newBox {
+    background-color: #ffffff88;
+    color: #a58e9b;
+    margin-top: 2rem;
+    padding: 10px;
+    border-radius: 10%;
+    font-size: 14px;
 }
 
 .search-box {
-    font-size: 18px;
+    font-size: 14px;
     width: 100%;
-    max-width: 280px;
+    max-width: 200px;
     padding: 10px 15px;
+    margin-bottom: 2rem;
     border-radius: 10px;
     outline: none;
-    border: 3px solid rgba(252, 205, 227, 0.568);
-    color: #575757;
-}
-
-@media (max-width: 800px) {
-    .new-location {
-        text-align: center;
-    }
-}
-
-/*  styles for the weather card */
-.container {
-    color: #4b4b4b;
-    width: 300px;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 5%;
-    padding: 5% 0 5% 0;
-    box-shadow: -9px -9px 16px rgba(172, 172, 172, 0.6);
+    border: 2px solid rgba(211, 211, 211, 0.226);
+    color: #a58e9b;
 }
 
 .notification {
@@ -121,7 +98,7 @@ h1 {
 }
 
 .location p {
-    margin: 0;
+    margin-top: 7px;
     padding: 0;
     font-size: 0.9em;
 }
