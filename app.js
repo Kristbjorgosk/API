@@ -1,5 +1,3 @@
-/* weather app */
-
 // SELECT ELEMENTS
 const iconElement = document.querySelector(".weather-icon");
 const tempElement = document.querySelector(".temperature-value p");
@@ -10,17 +8,10 @@ const notificationElement = document.querySelector(".notification");
 // App data
 const weather = {};
 
-weather.temperature = {
-  unit: "celsius",
-};
-
-// APP CONSTS AND VARS
-const KELVIN = 273;
-
-// API KEY
+// API key
 const key = "906c0adb77e48bd9ebd68cc1378c3a13";
 
-// CHECK IF BROWSER SUPPORTS GEOLOCATION
+// check if browser supports geulocation, if it does not then show error message
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition(setPosition, showError);
 } else {
@@ -28,21 +19,27 @@ if ("geolocation" in navigator) {
   notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
 }
 
-// SET USER'S POSITION
+// get the user location
 function setPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-
   getWeather(latitude, longitude);
 }
 
-// SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
+// errir message if there is a problem with the geolocation service
 function showError(error) {
   notificationElement.style.display = "block";
   notificationElement.innerHTML = `<p> ${error.message} </p>`;
 }
 
-// GET WEATHER FROM API PROVIDER
+// to convert kelvin to C or F
+const KELVIN = 273;
+
+weather.temperature = {
+  unit: "celsius",
+};
+
+// get the current weather from the provider
 function getWeather(latitude, longitude) {
   let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
@@ -63,7 +60,37 @@ function getWeather(latitude, longitude) {
     });
 }
 
-// DISPLAY WEATHER TO UI
+// display the weather in a new location
+const inputfield = document.querySelector(".new-location");
+inputfield.addEventListener("keypress", newResults);
+
+function newResults(evt) {
+  if (evt.keyCode == 13) {
+    newResults(inputfield.value);
+  }
+}
+
+function newResults(cityName) {
+  let newApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`;
+
+  fetch(newApi)
+    .then(function (response) {
+      let data = response.json();
+      return data;
+    })
+    .then(function (data) {
+      weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+      weather.description = data.weather[0].description;
+      weather.iconId = data.weather[0].icon;
+      weather.city = data.name;
+      weather.country = data.sys.country;
+    })
+    .then(function () {
+      displayWeather();
+    });
+}
+
+// display weather in the browser
 function displayWeather() {
   iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
   tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
@@ -76,7 +103,7 @@ function celsiusToFahrenheit(temperature) {
   return (temperature * 9) / 5 + 32;
 }
 
-// WHEN THE USER CLICKS ON THE TEMPERATURE ELEMENET
+// change C to F if you click on the temperature
 tempElement.addEventListener("click", function () {
   if (weather.temperature.value === undefined) return;
 
@@ -91,35 +118,3 @@ tempElement.addEventListener("click", function () {
     weather.temperature.unit = "celsius";
   }
 });
-
-// search box
-
-const api = {
-  key: "afaf9f8d48cff6cafd32e23220bcfdbf",
-  base: "https://api.openweathermap.org/data/2.5/",
-};
-
-const searchbox = document.querySelector(".search-box");
-searchbox.addEventListener("keypress", setQuery);
-
-function setQuery(evt) {
-  if (evt.keyCode == 13) {
-    getResults(searchbox.value);
-  }
-}
-
-function getResults(query) {
-  fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-    .then((weather) => {
-      return weather.json();
-    })
-    .then(displayResults);
-}
-
-function displayResults(weather) {
-  let city = document.querySelector(".location");
-  city.innerText = `${weather.name}, ${weather.sys.country}`;
-
-  let temp = document.querySelector(".temperature-value");
-  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
-}

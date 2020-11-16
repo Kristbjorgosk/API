@@ -74,12 +74,12 @@ body {
 }
 
 .notification {
-    background-color: #cecece;
+    background-color: #590000;
     display: none;
 }
 
 .notification p {
-    color: #48060c;
+    color: #ffffff;
     font-size: 1.2em;
     margin: 0;
     text-align: center;
