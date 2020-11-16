@@ -1,17 +1,3 @@
-/* navbar */
-
-/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
-  prevScrollpos = currentScrollPos;
-};
-
 /* weather app */
 
 // SELECT ELEMENTS
@@ -105,3 +91,35 @@ tempElement.addEventListener("click", function () {
     weather.temperature.unit = "celsius";
   }
 });
+
+// search box
+
+const api = {
+  key: "afaf9f8d48cff6cafd32e23220bcfdbf",
+  base: "https://api.openweathermap.org/data/2.5/",
+};
+
+const searchbox = document.querySelector(".search-box");
+searchbox.addEventListener("keypress", setQuery);
+
+function setQuery(evt) {
+  if (evt.keyCode == 13) {
+    getResults(searchbox.value);
+  }
+}
+
+function getResults(query) {
+  fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+    .then((weather) => {
+      return weather.json();
+    })
+    .then(displayResults);
+}
+
+function displayResults(weather) {
+  let city = document.querySelector(".location");
+  city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+  let temp = document.querySelector(".temperature-value");
+  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
+}

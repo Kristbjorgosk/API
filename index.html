@@ -3,69 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="font/Rimouski.css">
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
-    <title>Weather app</title>
+    <link rel="stylesheet" href="style.css">
+    <title>WEATHER APP</title>
 </head>
 
-
-<!--  header -->
-<div id="navbar">
-    <a href="index.html">Home</a>
-    <a href="#news">Liked photos</a>
-    <a href="#contact">Weather</a>
-</div>
-
 <body>
-    <h1>Welcomw to my photo gallery</h1>
-    <!--  photo grid -->
-    <div class="row">
-        <div class="column">
-            <img src="summer-1.png" style="width:100%">
-            <a data-pin-do="buttonBookmark" data-pin-round="true"
-                href="https://www.pinterest.com/pin/create/button/"><img
-                    src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_16.png" /></a>
-            <img src="summer-1.jpg" style="width:100%">
-            <img src="winter-1.jpg" style="width:100%">
-            <img src="fall-2.jpg" style="width:100%">
-            <img src="winter-2.jpg" style="width:100%">
-            <img src="fall-3.jpg" style="width:100%">
-            <img src="summer-1.png" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="summer-1.png" style="width:80%; height: 10%;">
-            <img src="summer-1.jpg" style="width:100%">
-            <img src="winter-1.jpg" style="width:100%; height: 10%;">
-            <img src="fall-2.jpg" style="width:100%">
-            <img src="winter-2.jpg" style="width:100%; height: 10%;">
-            <img src="fall-3.jpg" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="summer-1.png" style="width:100%">
-            <img src="summer-1.jpg" style="width:100%">
-            <img src="winter-1.jpg" style="width:100%">
-            <img src="fall-2.jpg" style="width:100%">
-            <img src="winter-2.jpg" style="width:100%">
-            <img src="fall-3.jpg" style="width:100%">
-            <img src="summer-1.png" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="summer-1.png" style="width:80%; height: 10%;">
-            <img src="summer-1.jpg" style="width:100%">
-            <img src="winter-1.jpg" style="width:100%; height: 10%;">
-            <img src="fall-2.jpg" style="width:100%">
-            <img src="winter-2.jpg" style="width:100%; height: 10%;">
-            <img src="fall-3.jpg" style="width:100%">
-        </div>
-    </div>
-
-
-
+    <h1>Here is the weather forcest for today</h1>
     <div class="container">
         <div class="app-title">
-            <p>Weather</p>
+            <p></p>
         </div>
         <div class="notification"></div>
         <div class="weather-container">
@@ -83,9 +30,13 @@
             </div>
         </div>
     </div>
+    <div class="new-location">
+        <p> Do you want to see the weather in another city or country?</p>
+        <p>Type the name of it here and press enter</p>
+        <input type="text" autocomplete="off" class="search-box" placeholder="Type here">
+    </div>
     <script src="app.js"></script>
 
-    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 
 </html>
