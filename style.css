@@ -13,7 +13,7 @@ body {
     margin: 2rem auto;
     text-align: center;
     border-radius: 5%;
-    padding: 2%;
+    padding: 7px;
     background: linear-gradient(144.08deg, #EBFEFF 21.01%, rgba(255, 244, 254, 0.567708) 54.93%, #ECFFEB 99.48%), linear-gradient(123.84deg, #E5E5E5 0.32%, #CDD5E0 32.08%, #CDD5E0 60.87%, #FFFFFF 95.61%);
     filter: drop-shadow(9px 9px 16px rgba(163, 177, 198, 0.6)), drop-shadow(-9px -9px 16px rgba(255, 255, 255, 0.6));
     box-shadow: -9px -9px 16px 0px rgba(255, 255, 255, 0.6);
@@ -39,7 +39,7 @@ h1 {
     width: 100%;
     max-width: 200px;
     padding: 10px 15px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     border-radius: 10px;
     outline: none;
     border: 2px solid rgba(211, 211, 211, 0.226);

@@ -4,6 +4,7 @@ const tempElement = document.querySelector(".temperature-value p");
 const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");
 const notificationElement = document.querySelector(".notification");
+const inputElement = document.querySelector(".search-box");
 
 // App data
 const weather = {};
@@ -61,15 +62,13 @@ function getWeather(latitude, longitude) {
 }
 
 // display the weather in a new location
-const inputfield = document.querySelector(".new-location");
-inputfield.addEventListener("keypress", newLocationResults);
+inputElement.addEventListener("keypress", newLocationResults);
 
 function newLocationResults(evt) {
   if (evt.keyCode == 13) {
-    newResults(inputfield.value);
+    newResults(inputElement.value);
   }
 }
-
 function newResults(cityName) {
   let newApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`;
 
