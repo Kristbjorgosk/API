@@ -9,31 +9,30 @@
 </head>
 
 <body>
-    <h1>Here is the weather forcest for today</h1>
-    <div class="container">
-        <div class="app-title">
-            <p></p>
+    <h1>Weather Forcest For Today</h1>
+    <div class="main">
+        <div class="container">
+            <div class="notification"></div>
+            <div class="weather-container" id="weather">
+                <div class="weather-icon">
+                    <img src="icons/unknown.png" alt="">
+                </div>
+                <div class="temperature-value" id="temp">
+                    <p>- °<span>C</span></p>
+                </div>
+                <div class="temperature-description" id="description">
+                    <p>-</p>
+                </div>
+                <div class="location" id="location">
+                    <p>-</p>
+                </div>
+            </div>
         </div>
-        <div class="notification"></div>
-        <div class="weather-container" id="weather">
-            <div class="weather-icon">
-                <img src="icons/unknown.png" alt="">
-            </div>
-            <div class="temperature-value" id="temp">
-                <p>- °<span>C</span></p>
-            </div>
-            <div class="temperature-description" id="description">
-                <p>-</p>
-            </div>
-            <div class="location" id="location">
-                <p>-</p>
-            </div>
+        <div class="new-location">
+            <p> Do you want to see the weather in another location?</p>
+            <p>Type the name of it here and press enter</p>
+            <input type="text" autocomplete="off" class="search-box" placeholder="Type here">
         </div>
-    </div>
-    <div class="new-location">
-        <p> Do you want to see the weather in another city or country?</p>
-        <p>Type the name of it here and press enter</p>
-        <input type="text" autocomplete="off" class="search-box" placeholder="Type here">
     </div>
     <script src="app.js"></script>
 

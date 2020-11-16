@@ -26,7 +26,7 @@ function setPosition(position) {
   getWeather(latitude, longitude);
 }
 
-// errir message if there is a problem with the geolocation service
+// error message if there is a problem with the geolocation service
 function showError(error) {
   notificationElement.style.display = "block";
   notificationElement.innerHTML = `<p> ${error.message} </p>`;
