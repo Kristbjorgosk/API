@@ -62,9 +62,9 @@ function getWeather(latitude, longitude) {
 
 // display the weather in a new location
 const inputfield = document.querySelector(".new-location");
-inputfield.addEventListener("keypress", newResults);
+inputfield.addEventListener("keypress", newLocationResults);
 
-function newResults(evt) {
+function newLocationResults(evt) {
   if (evt.keyCode == 13) {
     newResults(inputfield.value);
   }
@@ -75,15 +75,15 @@ function newResults(cityName) {
 
   fetch(newApi)
     .then(function (response) {
-      let data = response.json();
-      return data;
+      let newData = response.json();
+      return newData;
     })
-    .then(function (data) {
-      weather.temperature.value = Math.floor(data.main.temp - KELVIN);
-      weather.description = data.weather[0].description;
-      weather.iconId = data.weather[0].icon;
-      weather.city = data.name;
-      weather.country = data.sys.country;
+    .then(function (newData) {
+      weather.temperature.value = Math.floor(newData.main.temp - KELVIN);
+      weather.description = newData.weather[0].description;
+      weather.iconId = newData.weather[0].icon;
+      weather.city = newData.name;
+      weather.country = newData.sys.country;
     })
     .then(function () {
       displayWeather();
